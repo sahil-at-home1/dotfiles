@@ -101,7 +101,3 @@ hi link GitGutterChangeDeleteLineNr	DiffDelete
 " Plug-in: Vim-Tex"
 """"""""""""""""""""""""""""""""""
 let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_general_viewer = "firefox"
-" let g:vimtex_general_options = "-reuse-instance @pdf"
-" let g:vimtex_general_options_latexmk = "-reuse-instance"
-
