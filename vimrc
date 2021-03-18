@@ -6,7 +6,6 @@
 """"""""""""""""""""""""""""""""""
 set mouse=a "enable the mouse 
 let mapleader="\\"
-nnoremap ; : 
 "faster saving
 nnoremap <Leader>w :w<CR>
 "switch windows faster
