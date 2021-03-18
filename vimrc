@@ -1,5 +1,5 @@
 "********************************"
-"		init.vim / .vimrc		 "
+"		.vimrc		 "
 "********************************"
 
 " Key Bindings "
@@ -22,24 +22,8 @@ inoremap <C-l> <Right>
 "exit vim terminal insert mode with escape
 tmap <Esc> <C-\><C-n>
 
-" Plug-ins
-""""""""""""""""""""""""""""""""""
-call plug#begin("~/.vim/plugged/")
-	Plug 'dag/vim-fish'
-	Plug 'lervag/vimtex'
-	Plug 'tpope/vim-fugitive'
-	Plug 'mhinz/neovim-remote'
-	Plug 'scrooloose/syntastic'
-	Plug 'itchyny/lightline.vim'
-	Plug 'airblade/vim-gitgutter'
-	Plug 'scrooloose/nerdcommenter'
-	Plug 'sonph/onehalf', { 'rtp': 'vim' }
-call plug#end()
-
 " Appearance "
 """"""""""""""""""""""""""""""""""
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "fixes colors
-let g:lightline = { 'colorscheme': 'onehalfdark' }
 set wrap		   "turns word wrap on
 set title
 set ruler
@@ -53,10 +37,8 @@ set termguicolors  "fixes colors even more more
 set noequalalways  "windows dont have to be equal size
 set signcolumn=yes "left hand column for special signs
 "set background=dark
-set background=light
+"set background=light
 syntax on 
-"colorscheme onehalfdark
-colorscheme onehalflight
 
 " Swap Files "
 """"""""""""""""""""""""""""""""""
@@ -86,26 +68,3 @@ set ignorecase
 set belloff=all	   "try to get rid of annoying bells
 set encoding=utf-8
 filetype plugin on
-
-" Plug-in: NerdCommenter "
-""""""""""""""""""""""""""""""""""
-let g:NERDSpaceDelims=1			 "adds a space after the comment char
-let g:NERDToggleCheckAllLines=1
-let g:NERDCreateDefaultMappings=0
-"comment similar to vscode
-map <C-_> <Plug>NERDCommenterToggle 
-
-" Plug-in: Git Gutter "
-""""""""""""""""""""""""""""""""""
-let g:gitgutter_async=0				"no async updates on git dif
-let g:gitgutter_highlight_linenrs=1 "line numbers colored too
-autocmd BufWritePost * GitGutter    "update git diff on save
-"line numbers match the color of git diff
-hi link GitGutterAddLineNr			DiffAdd
-hi link GitGutterChangeLineNr		DiffChange 
-hi link GitGutterDeleteLineNr		DiffDelete 
-hi link GitGutterChangeDeleteLineNr	DiffDelete
-
-" Plug-in: Vim-Tex"
-""""""""""""""""""""""""""""""""""
-let g:vimtex_compiler_progname = 'nvr'
