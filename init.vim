@@ -6,21 +6,34 @@
 """"""""""""""""""""""""""""""""""
 set mouse=a "enable the mouse 
 let mapleader="\\"
-nnoremap ; : 
+"faster escape
+inoremap ;; <Esc>
+vnoremap ;; <Esc>
+cnoremap ;; <Esc>
 "faster saving
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
+nnoremap <Leader>t :term<CR>
 "switch windows faster
 nnoremap H <C-w>h
 nnoremap J <C-w>j
 nnoremap K <C-w>k
 nnoremap L <C-w>l
+"push windows around faster
+nnoremap <Leader>h <C-w>H
+nnoremap <Leader>j <C-w>J
+nnoremap <Leader>k <C-w>K
+nnoremap <Leader>l <C-w>L
 "arrow keys with vim keys
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
+noremap <C-h> <Left>
+noremap <C-j> <Down>
+noremap <C-k> <Up>
+noremap <C-l> <Right>
 "exit vim terminal insert mode with escape
+tmap ;; <Esc>
 tmap <Esc> <C-\><C-n>
+tnoremap <Leader>q :q!<CR>
 
 " Plug-ins
 """"""""""""""""""""""""""""""""""
