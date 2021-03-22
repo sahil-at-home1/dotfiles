@@ -8,18 +8,54 @@ set mouse=a "enable the mouse
 let mapleader="\\"
 "faster saving
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>wq :wq<CR>
 "switch windows faster
 nnoremap H <C-w>h
 nnoremap J <C-w>j
 nnoremap K <C-w>k
 nnoremap L <C-w>l
+"push windows around faster
+nnoremap <Leader>h <C-w>H
+nnoremap <Leader>j <C-w>J
+nnoremap <Leader>k <C-w>K
+nnoremap <Leader>l <C-w>L
 "arrow keys with vim keys
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
+map <C-h> <Left>
+map <C-j> <Down>
+map <C-k> <Up>
+map <C-l> <Right>
 "exit vim terminal insert mode with escape
 tmap <Esc> <C-\><C-n>
+tnoremap <Leader>q :q!<CR>
+
+" Auto Completion "
+""""""""""""""""""""""""""""""""""
+function! CleverTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+	  return "\<Tab>"
+   else
+	  return "\<C-N>"
+   endif
+endfunction
+function! CleverShiftTab()
+   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+	  return "\<S-Tab>"
+   else
+	  return "\<C-P>"
+   endif
+endfunction
+"CleverTab - Tab to open forward native autocomplete (from h: ins-completion)
+"CleverShiftTab - Shift+Tab to go back in native autocomplete menu 
+inoremap <Tab> <C-R>=CleverTab()<CR>
+inoremap <S-Tab> <C-R>=CleverShiftTab()<CR>
+"allows Enter to select Pop-Up Menu (pum) autocomplete suggestions
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"set completion to also show on just one match, 
+"and to not insert unless selected
+set completeopt=menuone,noinsert 
+set omnifunc=syntaxcomplete#Complete "omni-completion (syntax-based) for supported languages
+filetype plugin on "detect file type and run native vim file-specific scripts 
 
 " Appearance "
 """"""""""""""""""""""""""""""""""
@@ -66,4 +102,3 @@ set ignorecase
 """"""""""""""""""""""""""""""""""
 set belloff=all	   "try to get rid of annoying bells
 set encoding=utf-8
-filetype plugin on
