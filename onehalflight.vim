@@ -1,19 +1,30 @@
 " =============================================================================
 " Filename: autoload/lightline/colorscheme/onehalflight.vim
-" lightline theme for onehalflight color scheme
 " =============================================================================
+"
+" let s:mono0 = [ '#282c34', 236 ]
+" let s:mono1 = [ '#313640', 238 ]
+" let s:mono2 = [ '#5d677a', 243 ]
+" let s:mono3 = [ '#dcdfe4', 255 ]
 
-let s:mono0 = [ '#383a42', 237 ] "black
+let s:mono0 = [ '#fafafa', 237 ] "white (theme)
 let s:mono1 = [ '#f0f0f0', 255 ] "cursorline
-let s:mono2 = [ '#5d677a', 243 ] "grey
-let s:mono3 = [ '#fafafa', 231 ] "white
+let s:mono2 = [ '#a0a1a7', 243 ] "light grey
+let s:mono3 = [ '#282c34', 236 ] "black (opposite of theme)
 
-let s:yellow = [ '#e5c07b', 180 ]
-let s:red = [ '#e06c75', 168 ]
-let s:magenta = [ '#c678dd', 176 ]
-let s:blue = [ '#61afef', 75 ]
-let s:cyan = [ '#56b6c2', 73 ]
-let s:green = [ '#98c379', 114 ]
+" let s:yellow = [ '#e5c07b', 180 ]
+" let s:red = [ '#e06c75', 168 ]
+" let s:magenta = [ '#c678dd', 176 ]
+" let s:blue = [ '#61afef', 75 ]
+" let s:cyan = [ '#56b6c2', 73 ]
+" let s:green = [ '#98c379', 114 ]
+
+let s:yellow = [ '#c18401', 136 ]
+let s:red = [ '#e45649', 167 ]
+let s:magenta = [ '#a626a4', 127 ]
+let s:blue = [ '#0184bc', 31 ]
+let s:cyan = [ '#0997b3', 31 ]
+let s:green = [ '#50a14f', 71 ]
 
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
 
