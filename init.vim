@@ -51,7 +51,8 @@ call plug#end()
 " Appearance "
 """"""""""""""""""""""""""""""""""
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "fixes colors
-let g:lightline = { 'colorscheme': 'onehalfdark' }
+" let g:lightline = { 'colorscheme': 'onehalfdark' }
+let g:lightline = { 'colorscheme': 'onehalflight' }
 set wrap		   "turns word wrap on
 set title
 set ruler
@@ -73,18 +74,18 @@ colorscheme onehalflight
 " Auto Completion "
 """"""""""""""""""""""""""""""""""
 function! CleverTab()
-   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-	  return "\<Tab>"
-   else
-	  return "\<C-N>"
-   endif
+	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+		return "\<Tab>"
+	else
+		return "\<C-N>"
+	endif
 endfunction
 function! CleverShiftTab()
-   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-	  return "\<S-Tab>"
-   else
-	  return "\<C-P>"
-   endif
+	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+		return "\<S-Tab>"
+	else
+		return "\<C-P>"
+	endif
 endfunction
 "CleverTab - Tab to open forward native autocomplete (from h: ins-completion)
 "CleverShiftTab - Shift+Tab to go back in native autocomplete menu 
@@ -92,6 +93,7 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 inoremap <S-Tab> <C-R>=CleverShiftTab()<CR>
 "allows Enter to select Pop-Up Menu (pum) autocomplete suggestions
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"set complete=.,w,b,t,i
 "set completion to also show on just one match, 
 "and to not insert unless selected
 set completeopt=menuone,noinsert 
