@@ -35,6 +35,9 @@ function changecolor
 	# changes the background setting
 	sed -i "s/\(\"\)\(set background=$color\)/\2/" $initpath # uncomment desired 
 	sed -i "s/^set background=$ocolor/\"&/" $initpath;		 # comment out opposite
+	# changes the lightline theme
+	sed -i "s/\(\"\)\(let g:lightline = { 'colorscheme': '$theme\)/\2/" $initpath 
+	sed -i "s/^let g:lightline = { 'colorscheme': '$otheme/\"&/" $initpath;
 
 	# start vim with the init sourced
 	vim -S $initpath
