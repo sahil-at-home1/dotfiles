@@ -51,8 +51,8 @@ call plug#end()
 " Appearance "
 """"""""""""""""""""""""""""""""""
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "fixes colors
-" let g:lightline = { 'colorscheme': 'onehalfdark' }
-let g:lightline = { 'colorscheme': 'onehalflight' }
+let g:lightline = { 'colorscheme': 'onehalfdark' }
+"let g:lightline = { 'colorscheme': 'onehalflight' }
 set wrap		   "turns word wrap on
 set title
 set ruler
@@ -64,12 +64,12 @@ set cmdheight=1	   "command line
 set laststatus=2   "status line is 2 lines high
 set termguicolors  "fixes colors even more more 
 set noequalalways  "windows dont have to be equal size
-set signcolumn=yes "left hand column for special signs
-"set background=dark
-set background=light
+set signcolumn=no  "left hand column for special signs
+set background=dark
+"set background=light
 syntax on 
-"colorscheme onehalfdark
-colorscheme onehalflight
+colorscheme onehalfdark
+"colorscheme onehalflight
 
 " Auto Completion "
 """"""""""""""""""""""""""""""""""
@@ -127,6 +127,7 @@ set ignorecase
 """"""""""""""""""""""""""""""""""
 set belloff=all	   "try to get rid of annoying bells
 set encoding=utf-8
+packadd termdebug  "add the native vim gdb plugin
 
 " Plug-in: NerdCommenter "
 """"""""""""""""""""""""""""""""""
@@ -150,3 +151,14 @@ hi link GitGutterChangeDeleteLineNr	DiffDelete
 " Plug-in: Vim-Tex"
 """"""""""""""""""""""""""""""""""
 let g:vimtex_compiler_progname = 'nvr'
+
+" Plug-in: Syntastic"
+""""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
