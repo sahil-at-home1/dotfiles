@@ -27,10 +27,12 @@ let s:cyan        = { "gui": "#0997b3", "cterm": "31" }
 let s:white       = { "gui": "#fafafa", "cterm": "231" }
 
 let s:fg          = s:black
-let s:bg          = s:white
+"let s:bg          = s:white
+let s:bg          = "NONE"
 
 let s:comment_fg  = { "gui": "#a0a1a7", "cterm": "247" }
-let s:gutter_bg   = { "gui": "#fafafa", "cterm": "231" }
+"let s:gutter_bg   = { gui: #fafafa, cterm: 231 }
+let s:gutter_bg   = { "gui": "NONE", "cterm": "NONE" }
 let s:gutter_fg   = { "gui": "#d4d4d4", "cterm": "252" }
 let s:non_text    = { "gui": "#e5e5e5", "cterm": "252" }
 
@@ -218,7 +220,8 @@ hi link gitcommitUnmergedArrow gitcommitUnmergedFile
     let g:terminal_color_13 = s:purple.gui
     let g:terminal_color_14 = s:cyan.gui
     let g:terminal_color_15 = s:white.gui
-    let g:terminal_color_background = s:bg.gui
+    let g:terminal_color_background = "NONE"
+    "let g:terminal_color_background = s:bg.gui
     let g:terminal_color_foreground = s:fg.gui
   endif
 " }
