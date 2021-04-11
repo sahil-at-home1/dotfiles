@@ -6,14 +6,10 @@
 """"""""""""""""""""""""""""""""""
 set mouse=a "enable the mouse 
 let mapleader="\\"
-"faster escape
-" inoremap ;; <Esc>
-" vnoremap ;; <Esc>
-" cnoremap ;; <Esc>
 "faster saving
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-nnoremap <Leader>wq :wq<CR>
+"nnoremap <Leader>w :w<CR>
+"nnoremap <Leader>q :q<CR>
+"nnoremap <Leader>wq :wq<CR>
 "switch windows faster
 nnoremap H <C-w>h
 nnoremap J <C-w>j
@@ -30,7 +26,6 @@ map <C-j> <Down>
 map <C-k> <Up>
 map <C-l> <Right>
 "exit vim terminal insert mode with escape
-" tmap ;; <Esc>
 tmap <Esc> <C-\><C-n>
 tnoremap <Leader>q :q!<CR>
 
@@ -46,13 +41,15 @@ call plug#begin("~/.vim/plugged/")
 	Plug 'airblade/vim-gitgutter'
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'sonph/onehalf', { 'rtp': 'vim' }
+	Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 " Appearance "
 """"""""""""""""""""""""""""""""""
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "fixes colors
-let g:lightline = { 'colorscheme': 'onehalfdark' }
-"let g:lightline = { 'colorscheme': 'onehalflight' }
+"let g:lightline = { 'colorscheme': 'wal' }
+"let g:lightline = { 'colorscheme': 'onehalfdark' }
+let g:lightline = { 'colorscheme': 'onehalflight' }
 set wrap		   "turns word wrap on
 set title
 set ruler
@@ -62,14 +59,15 @@ set showmatch	   "show matching brackets
 set cursorline	   "shows darker color for line cursor is one
 set cmdheight=1	   "command line
 set laststatus=2   "status line is 2 lines high
-set termguicolors  "fixes colors even more more 
+"set termguicolors  "fixes colors even more more 
 set noequalalways  "windows dont have to be equal size
 set signcolumn=no  "left hand column for special signs
-set background=dark
-"set background=light
+"set background=dark
+set background=light
 syntax on 
-colorscheme onehalfdark
-"colorscheme onehalflight
+"colorscheme onehalfdark
+colorscheme onehalflight
+"colorscheme wal 
 
 " Auto Completion "
 """"""""""""""""""""""""""""""""""
@@ -131,7 +129,7 @@ packadd termdebug  "add the native vim gdb plugin
 
 " Plug-in: NerdCommenter "
 """"""""""""""""""""""""""""""""""
-let g:NERDSpaceDelims=1			 "adds a space after the comment char
+let g:NERDSpaceDelims=0			 "adds a space after the comment char
 let g:NERDToggleCheckAllLines=1
 let g:NERDCreateDefaultMappings=0
 "comment similar to vscode
