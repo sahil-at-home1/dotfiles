@@ -34,32 +34,32 @@ tnoremap <Leader>q :q!<CR>
 call plug#begin("~/.vim/plugged/")
 	Plug 'dag/vim-fish'
 	Plug 'lervag/vimtex'
+	Plug 'ap/vim-css-color'
+	Plug 'godlygeek/tabular'
 	Plug 'tpope/vim-fugitive'
+	Plug 'dylanaraps/wal.vim'
 	Plug 'mhinz/neovim-remote'
 	Plug 'scrooloose/syntastic'
 	Plug 'itchyny/lightline.vim'
 	Plug 'airblade/vim-gitgutter'
+	Plug 'unblevable/quick-scope'
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'sonph/onehalf', { 'rtp': 'vim' }
-	Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 " Appearance "
 """"""""""""""""""""""""""""""""""
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "fixes colors
-"let g:lightline = { 'colorscheme': 'wal' }
-"let g:lightline = { 'colorscheme': 'onehalfdark' }
-let g:lightline = { 'colorscheme': 'onehalflight' }
-set wrap		   "turns word wrap on
+"set wrap		   "turns word wrap on
+set nowrap		   "turns word wrap off
 set title
 set ruler
 set number		   "just normal line numbers
 set t_Co=256	   "fixes colors even more
 set showmatch	   "show matching brackets
-set cursorline	   "shows darker color for line cursor is one
+set cursorline	   "shows darker color for line cursor
 set cmdheight=1	   "command line
 set laststatus=2   "status line is 2 lines high
-"set termguicolors  "fixes colors even more more 
+set termguicolors  "fixes colors even more more 
 set noequalalways  "windows dont have to be equal size
 set signcolumn=no  "left hand column for special signs
 "set background=dark
@@ -68,6 +68,10 @@ syntax on
 "colorscheme onehalfdark
 colorscheme onehalflight
 "colorscheme wal 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "fixes colors
+"let g:lightline = { 'colorscheme': 'wal' }
+"let g:lightline = { 'colorscheme': 'onehalfdark' }
+let g:lightline = { 'colorscheme': 'onehalflight' }
 
 " Auto Completion "
 """"""""""""""""""""""""""""""""""
@@ -106,13 +110,14 @@ set nowritebackup
 
 " Spacing
 """"""""""""""""""""""""""""""""""
-set ai			  "auto indent"
-set si			  "smart indent"
-set smarttab
+"set ai			  "auto indent"
+set noai			  "auto indent"
+"set si			  "smart indent"
+set nosi			  "smart indent"
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set backspace=eol,start,indent
+"set backspace=eol,start,indent
 
 " Searching "
 """"""""""""""""""""""""""""""""""
@@ -126,6 +131,7 @@ set ignorecase
 set belloff=all	   "try to get rid of annoying bells
 set encoding=utf-8
 packadd termdebug  "add the native vim gdb plugin
+set shell=/usr/bin/fish
 
 " Plug-in: NerdCommenter "
 """"""""""""""""""""""""""""""""""
