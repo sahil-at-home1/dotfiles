@@ -33,17 +33,14 @@ tnoremap <Leader>q :q!<CR>
 """"""""""""""""""""""""""""""""""
 call plug#begin("~/.vim/plugged/")
 	Plug 'dag/vim-fish'
-	Plug 'lervag/vimtex'
 	Plug 'ap/vim-css-color'
-	Plug 'godlygeek/tabular'
 	Plug 'tpope/vim-fugitive'
-	Plug 'dylanaraps/wal.vim'
 	Plug 'mhinz/neovim-remote'
 	Plug 'scrooloose/syntastic'
 	Plug 'itchyny/lightline.vim'
 	Plug 'airblade/vim-gitgutter'
-	Plug 'unblevable/quick-scope'
 	Plug 'scrooloose/nerdcommenter'
+	Plug 'maxbane/vim-asm_ca65'
 	Plug 'sonph/onehalf', { 'rtp': 'vim' }
 call plug#end()
 
@@ -61,17 +58,16 @@ set cmdheight=1	   "command line
 set laststatus=2   "status line is 2 lines high
 set termguicolors  "fixes colors even more more 
 set noequalalways  "windows dont have to be equal size
-set signcolumn=no  "left hand column for special signs
-"set background=dark
-set background=light
+set signcolumn=yes  "left hand column for special signs
+set background=dark
+"set background=light
 syntax on 
-"colorscheme onehalfdark
-colorscheme onehalflight
-"colorscheme wal 
+colorscheme onehalfdark
+"colorscheme onehalflight
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1 "fixes colors
 "let g:lightline = { 'colorscheme': 'wal' }
-"let g:lightline = { 'colorscheme': 'onehalfdark' }
-let g:lightline = { 'colorscheme': 'onehalflight' }
+let g:lightline = { 'colorscheme': 'onehalfdark' }
+"let g:lightline = { 'colorscheme': 'onehalflight' }
 
 " Auto Completion "
 """"""""""""""""""""""""""""""""""
@@ -132,6 +128,7 @@ set belloff=all	   "try to get rid of annoying bells
 set encoding=utf-8
 packadd termdebug  "add the native vim gdb plugin
 set shell=/usr/bin/fish
+autocmd BufNewFile,BufRead *.s6502 set filetype=asm_ca65
 
 " Plug-in: NerdCommenter "
 """"""""""""""""""""""""""""""""""
@@ -166,3 +163,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_asm_checkers = ['gcc','asm_ca65']
