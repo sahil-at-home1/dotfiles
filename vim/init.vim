@@ -121,6 +121,7 @@ set hlsearch
 set incsearch
 set smartcase
 set ignorecase
+set tags=tags;/ "ctags
 
 " Extra "
 """"""""""""""""""""""""""""""""""
