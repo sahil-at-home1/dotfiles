@@ -43,7 +43,7 @@
           "type": "git",
           "style": "plain",
           "invert_powerline": false,
-          "foreground": "#4a44a4",
+          "foreground": "#606cff",
           "properties": {
             "branch_icon": "",
             "fetch_stash_count": true,

@@ -42,6 +42,7 @@ call plug#begin("~/.vim/plugged/")
 	Plug 'scrooloose/nerdcommenter'
 	Plug 'maxbane/vim-asm_ca65'
 	Plug 'sonph/onehalf', { 'rtp': 'vim' }
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " Appearance "
