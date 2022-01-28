@@ -65,7 +65,7 @@
           "style": "powerline",
           "foreground": "#7FD5EA",
           "properties": {
-            "prefix": "\u005b\uFCD1 ",
+            "prefix": "\u005b\ue627 ",
             "postfix": "\u005D "
           }
         },

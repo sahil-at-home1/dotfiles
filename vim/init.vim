@@ -1,5 +1,5 @@
-"********************************"
-"		init.vim / .vimrc		 "
+"********************************" 
+"      init.vim / .vimrc		 "
 "********************************"
 
 " Key Bindings "
@@ -11,20 +11,20 @@ let mapleader="\\"
 "nnoremap <Leader>q :q<CR>
 "nnoremap <Leader>wq :wq<CR>
 "switch windows faster
-nnoremap H <C-w>h
-nnoremap J <C-w>j
-nnoremap K <C-w>k
-nnoremap L <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+"remap caps version of nav keys to avoid messing things up"
+nnoremap H <Nop>
+nnoremap J <Nop>
+nnoremap K <Nop>
+nnoremap L <Nop>
 "push windows around faster
 nnoremap <Leader>h <C-w>H
 nnoremap <Leader>j <C-w>J
 nnoremap <Leader>k <C-w>K
 nnoremap <Leader>l <C-w>L
-"arrow keys with vim keys
-map <C-h> <Left>
-map <C-j> <Down>
-map <C-k> <Up>
-map <C-l> <Right>
 "exit vim terminal insert mode with escape
 tmap <Esc> <C-\><C-n>
 tnoremap <Leader>q :q!<CR>
