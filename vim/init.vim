@@ -151,11 +151,7 @@ hi link GitGutterChangeLineNr		DiffChange
 hi link GitGutterDeleteLineNr		DiffDelete 
 hi link GitGutterChangeDeleteLineNr	DiffDelete
 
-" Plug-in: Vim-Tex"
-""""""""""""""""""""""""""""""""""
-let g:vimtex_compiler_progname = 'nvr'
-
-" Plug-in: Syntastic"
+" Plug-in: Syntastic "
 """"""""""""""""""""""""""""""""""
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -167,3 +163,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_asm_checkers = ['gcc','asm_ca65']
+
+" Plug-in: Vim-Go "
+""""""""""""""""""""""""""""""""""
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
