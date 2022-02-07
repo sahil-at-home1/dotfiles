@@ -33,14 +33,15 @@ tnoremap <Leader>q :q!<CR>
 """"""""""""""""""""""""""""""""""
 call plug#begin("~/.vim/plugged/")
 	Plug 'dag/vim-fish'
+	Plug 'preservim/tagbar'
 	Plug 'ap/vim-css-color'
 	Plug 'tpope/vim-fugitive'
 	Plug 'mhinz/neovim-remote'
 	Plug 'scrooloose/syntastic'
+	Plug 'maxbane/vim-asm_ca65'
 	Plug 'itchyny/lightline.vim'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'scrooloose/nerdcommenter'
-	Plug 'maxbane/vim-asm_ca65'
 	Plug 'sonph/onehalf', { 'rtp': 'vim' }
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
