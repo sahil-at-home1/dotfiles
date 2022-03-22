@@ -34,11 +34,10 @@ tnoremap <Leader>q :q!<CR>
 call plug#begin("~/.vim/plugged/")
 	Plug 'dag/vim-fish'
 	Plug 'preservim/tagbar'
-	Plug 'ap/vim-css-color'
 	Plug 'tpope/vim-fugitive'
+	Plug 'rust-lang/rust.vim'
 	Plug 'mhinz/neovim-remote'
 	Plug 'scrooloose/syntastic'
-	Plug 'maxbane/vim-asm_ca65'
 	Plug 'itchyny/lightline.vim'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'scrooloose/nerdcommenter'
@@ -169,3 +168,7 @@ let g:syntastic_asm_checkers = ['gcc','asm_ca65']
 """"""""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 1
+
+" Plug-in: rust-lang"
+""""""""""""""""""""""""""""""""""
+let g:rustfmt_autosave = 1
