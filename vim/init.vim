@@ -30,11 +30,11 @@ tnoremap <Leader>q :q!<CR>
 call plug#begin("~/.vim/plugged/")
 	Plug 'dag/vim-fish'
 	Plug 'preservim/tagbar'
-	Plug 'dense-analysis/ale'
+	Plug 'ervandew/supertab'
 	Plug 'tpope/vim-fugitive'
 	Plug 'rust-lang/rust.vim'
 	Plug 'mhinz/neovim-remote'
-	"Plug 'scrooloose/syntastic'
+	Plug 'dense-analysis/ale'
 	Plug 'itchyny/lightline.vim'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'scrooloose/nerdcommenter'
@@ -129,19 +129,6 @@ hi link GitGutterChangeLineNr		DiffChange
 hi link GitGutterDeleteLineNr		DiffDelete 
 hi link GitGutterChangeDeleteLineNr	DiffDelete
 
-" Plug-in: Syntastic "
-""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_asm_checkers = ['gcc','asm_ca65']
-
 " Plug-in: Vim-Go "
 """"""""""""""""""""""""""""""""""
 let g:go_fmt_command = "goimports"
@@ -149,16 +136,24 @@ let g:go_metalinter_autosave = 1
 
 " Plug-in: rust-lang "
 """"""""""""""""""""""""""""""""""
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 
 " Plug-in: ALE "
 """"""""""""""""""""""""""""""""""
 let b:ale_linters = {"rust": ["analyzer"]}
 let b:ale_fixers = {"rust": ["rustfmt"]}
-let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 1
 let g:ale_lint_on_insert_leave = 1
-let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
 let g:ale_open_list = 1
-let g:ale_set_balloons = 1
+let g:ale_fix_on_save = 1
+let g:ale_set_loclist = 1
+let g:ale_set_quckfix = 0
 let g:ale_completion_enabled = 1
+let g:ale_set_balloons = 0
+
+" Plug-in: Supertab "
+""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabCrMapping = 1
