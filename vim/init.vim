@@ -6,10 +6,6 @@
 """"""""""""""""""""""""""""""""""
 set mouse=a "enable the mouse 
 let mapleader="\\"
-"faster saving
-"nnoremap <Leader>w :w<CR>
-"nnoremap <Leader>q :q<CR>
-"nnoremap <Leader>wq :wq<CR>
 "switch windows faster
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -34,10 +30,11 @@ tnoremap <Leader>q :q!<CR>
 call plug#begin("~/.vim/plugged/")
 	Plug 'dag/vim-fish'
 	Plug 'preservim/tagbar'
+	Plug 'dense-analysis/ale'
 	Plug 'tpope/vim-fugitive'
 	Plug 'rust-lang/rust.vim'
 	Plug 'mhinz/neovim-remote'
-	Plug 'scrooloose/syntastic'
+	"Plug 'scrooloose/syntastic'
 	Plug 'itchyny/lightline.vim'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'scrooloose/nerdcommenter'
@@ -72,32 +69,13 @@ let g:lightline = { 'colorscheme': 'onehalfdark' }
 
 " Auto Completion "
 """"""""""""""""""""""""""""""""""
-function! CleverTab()
-	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-		return "\<Tab>"
-	else
-		return "\<C-N>"
-	endif
-endfunction
-function! CleverShiftTab()
-	if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-		return "\<S-Tab>"
-	else
-		return "\<C-P>"
-	endif
-endfunction
-"CleverTab - Tab to open forward native autocomplete (from h: ins-completion)
-"CleverShiftTab - Shift+Tab to go back in native autocomplete menu 
-inoremap <Tab> <C-R>=CleverTab()<CR>
-inoremap <S-Tab> <C-R>=CleverShiftTab()<CR>
-"allows Enter to select Pop-Up Menu (pum) autocomplete suggestions
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"set complete=.,w,b,t,i
-"set completion to also show on just one match, 
-"and to not insert unless selected
+"set completion menu to show on just one match, 
+"and to not insert unless an entry is selected
 set completeopt=menuone,noinsert 
-set omnifunc=syntaxcomplete#Complete "omni-completion (syntax-based) for supported languages
-filetype plugin on "detect file type and run native vim file-specific scripts 
+"omni-completion (syntax-based) for supported languages
+set omnifunc=ale#completion#OmniFunc
+"detect file type and run native vim file-specific scripts 
+filetype plugin on 
 
 " Swap Files "
 """"""""""""""""""""""""""""""""""
@@ -107,10 +85,10 @@ set nowritebackup
 
 " Spacing
 """"""""""""""""""""""""""""""""""
-"set ai			  "auto indent"
-set noai			  "auto indent"
-"set si			  "smart indent"
-set nosi			  "smart indent"
+"set ai			  "auto indent
+set noai			  "auto indent
+"set si			  "smart indent
+set nosi			  "smart indent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -169,6 +147,18 @@ let g:syntastic_asm_checkers = ['gcc','asm_ca65']
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 1
 
-" Plug-in: rust-lang"
+" Plug-in: rust-lang "
 """"""""""""""""""""""""""""""""""
 let g:rustfmt_autosave = 1
+
+" Plug-in: ALE "
+""""""""""""""""""""""""""""""""""
+let b:ale_linters = {"rust": ["analyzer"]}
+let b:ale_fixers = {"rust": ["rustfmt"]}
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_insert_leave = 1
+let g:ale_fix_on_save = 1
+let g:ale_open_list = 1
+let g:ale_set_balloons = 1
+let g:ale_completion_enabled = 1
